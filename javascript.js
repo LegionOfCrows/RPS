@@ -3,36 +3,62 @@ function getComputerChoice(){
     switch(choice){
         case 0:
             return "rock"
-        case 1:
-            return "paper"
-        case 2:   
-            return "scissors"
+            case 1:
+                return "paper"
+                case 2:   
+                return "scissors"
+            }
         }
-    }
-function playRound(playerSelection, computerSelection){
-    let player = playerSelection.toLowerCase()
-    if (player === computerSelection) {
-        console.log("TIE")
-    } else if (player === "rock"){
-        if (computerSelection === "paper"){
-            console.log("YOU LOSE")
-        } else {
-            console.log("YOU WIN")
-        }
-    } else if (player === "paper"){
-        if (computerSelection === "scissors"){
-            console.log("YOU LOSE")
-        } else {
-            console.log("YOU WIN")
-        }   
-    } else if (player === "scissors"){
-        if (computerSelection === "rock"){
-            console.log("YOU LOSE")
-        } else {
-            console.log("YOU WIN")
+        function playRound(playerSelection, getComputerChoice){
+            let computerSelection = getComputerChoice()
+            let player = playerSelection.toLowerCase()
+            if (player === computerSelection) {
+                console.log("TIE")
+            } else if (player === "rock"){
+                if (computerSelection === "paper"){
+                    console.log("YOU LOSE")
+                    return "LOSE"
+                } else {
+                    console.log("YOU WIN")
+                    return "WIN"
+                }
+            } else if (player === "paper"){
+                if (computerSelection === "scissors"){
+                    console.log("YOU LOSE")
+                    return "LOSE"
+                } else {
+                    console.log("YOU WIN")
+                    return "WIN"
+                }   
+            } else if (player === "scissors"){
+                if (computerSelection === "rock"){
+                    console.log("YOU LOSE")
+                    return "LOSE"
+                } else {
+                    console.log("YOU WIN")
+            return "WIN"
         }   
     }}
-
-const playerSelection = "rock"
-const computerSelection = getComputerChoice()
-console.log(playRound(playerSelection, computerSelection))
+    function game(){
+        let playerScore = 0
+        let computerScore = 0
+        while (playerScore  != 5 & computerScore != 5) {
+            let result =''
+            result = playRound(playerSelection, getComputerChoice)
+            if( result === "WIN"){
+                playerScore = playerScore + 1
+            } else if(result === "LOSE"){
+                computerScore = computerScore + 1
+            } else{
+                console.log("TIE")
+            }
+        }
+        if (playerScore > computerScore){
+            console.log("YOU WIN THE GAME")
+        } else {
+            console.log("YOU LOSE THE GAME")
+        }
+    }
+    
+    const playerSelection = "rock"
+    console.log(game())
