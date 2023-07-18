@@ -9,9 +9,9 @@ function getComputerChoice(){
                 return "scissors"
             }
         }
-        function playRound(playerSelection, getComputerChoice){
+        function playRound(getComputerChoice){
             let computerSelection = getComputerChoice()
-            let player = playerSelection.toLowerCase()
+            let player = prompt("CHOOSE","rock").toLowerCase()
             if (player === computerSelection) {
                 console.log("TIE")
             } else if (player === "rock"){
@@ -44,7 +44,7 @@ function getComputerChoice(){
         let computerScore = 0
         while (playerScore  != 5 & computerScore != 5) {
             let result =''
-            result = playRound(playerSelection, getComputerChoice)
+            result = playRound(getComputerChoice)
             if( result === "WIN"){
                 playerScore = playerScore + 1
             } else if(result === "LOSE"){
@@ -60,5 +60,4 @@ function getComputerChoice(){
         }
     }
     
-    const playerSelection = "rock"
     console.log(game())
